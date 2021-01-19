@@ -235,7 +235,7 @@ void* hack_thread(void*) {
     */
     octo_hook((void*)getRealOffset(0x1E4CE74), (void*)PlayerMoveCUpdate, (void**)&old_PlayerMoveCUpdate);
     octo_hook((void*)getRealOffset(0x2B663EC), (void*)BankControllerUpdate, (void**)&old_BankControllerUpdate);
-    octo_hook((void*)getAbsoluteAddress(0x229CD44), (void*)WeapSoundsUpdate, (void**)&old_WeapSoundsUpdate);
+    octo_hook((void*)getRealOffset(0x229CD44), (void*)WeapSoundsUpdate, (void**)&old_WeapSoundsUpdate);
 
     patch.Recoil = Patch::Setup((void*)getAbsoluteAddress(0x318D604), (char*)"\x01\x00\xa0\xe3\x1e\xff\x2f\xe1", 8); //丅三丑一丂丈丕丁丅
     patch.ScatterReduction = Patch::Setup((void*)getAbsoluteAddress(0x318CE14), (char*)"\x01\x00\xa0\xe3\x1e\xff\x2f\xe1", 8); //丂丛丐专丛下丐丏丅
