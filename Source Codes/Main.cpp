@@ -82,10 +82,12 @@ bool weapsoundsHookInitialized = false;
 
 void (*ActivateXRay)(void* _this, bool activate);
 void (*SendChat)(void* _this, monoString* text, bool ClanLogo, monoString* iconName);
+ /*
 void (*set_curhealth)(void* _this, float amount);
 void (*set_countkills)(void* _this, int amount);
 void (*set_isImmortality)(void* _this, bool value);
 void (*SetBigHeadEffect)(void* _this, bool value);
+*/
 
 void(*old_PlayerMoveCUpdate)(void *instance);
 void PlayerMoveCUpdate(void *instance) {
@@ -99,14 +101,14 @@ void PlayerMoveCUpdate(void *instance) {
             ActivateXRay(instance, true);
         }
         if (isChatSpam) {
-          SendChat(instance, CreateMonoString("Slice Cast Is My Dad!"), false, CreateMonoString("Slice Cast Is My Dad!"));
+            SendChat(instance, CreateMonoString("Slice Cast Is My Dad!"), false, CreateMonoString("Slice Cast Is My Dad!"));
         }
         if (isInvisible) {
             *(bool *) ((uint64_t) instance + 0x2C6) = true; // 丛丞且丄丅丙业且丐
         }
         if (isVisible) {
             *(bool *) ((uint64_t) instance + 0x2C3) = false; // 业丁东丄丞与一丏上
-        }
+             /*
         if (isGod) {
             set_curhealth(instance, 1.0f); //In-Game sets it at 2
         }
@@ -118,6 +120,7 @@ void PlayerMoveCUpdate(void *instance) {
         }
         if (isSetBigHead) {
             SetBigHeadEffect(instance, true);
+        */
         }
     }
     old_PlayerMoveCUpdate(instance);
@@ -224,10 +227,12 @@ void* hack_thread(void*) {
    LOGI("Hooking GameManager_LateUpdate");
     ActivateXRay = (void (*)(void*, bool))getRealOffset(0x1E3F720); //且丂丙丌上丕丛丞丙
     SendChat = (void (*)(void*, monoString*, bool, monoString*))getRealOffset(0x1E2047C); //SendChat:Player_move_c
+    /*
     set_countkills = (void (*)(void*, int))getRealOffset(0xFFFFFFF);
     set_curhealth = (void (*)(void*, float))getRealOffset(0xFFFFFF);
     set_isImmortality = (void (*)(void*, bool))getRealOffset(0xFFFFFF);
     SetBigHeadEffect = (void (*)(void*, bool))getRealOffset(0xFFFFFF);
+    */
     octo_hook((void*)getRealOffset(0x1E4CE74), (void*)PlayerMoveCUpdate, (void**)&old_PlayerMoveCUpdate);
     octo_hook((void*)getRealOffset(0x2B663EC), (void*)BankControllerUpdate, (void**)&old_BankControllerUpdate);
     octo_hook((void*)getAbsoluteAddress(0x229CD44), (void*)WeapSoundsUpdate, (void**)&old_WeapSoundsUpdate);
