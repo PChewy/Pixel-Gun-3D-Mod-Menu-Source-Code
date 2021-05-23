@@ -6,7 +6,7 @@ Made by Chewy
 
 Use this mod-menu template (only supported) https://github.com/Octowolve/Substrate-Template-With-Mod-Menu
 
-Credits: SliceCast / Chewy / SliceCast / Jbro129 <3
+Credits: Chewy / SliceCast / Jbro129 <3
 
 
 # WARNING
