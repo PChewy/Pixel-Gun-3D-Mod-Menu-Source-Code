@@ -43,4 +43,4 @@ Use https://github.com/LGLTeam/Android-Mod-Menu if you want to do this
             }
 ```
 
-6. Chat spam is using "Start" because there isn't any update function in that class, this means that you may have to reopen the game or clans for it to work because it only gets called ones
+3. Chat spam is using "Start" because there isn't any update function in that class, this means that you may have to reopen the game or clans for it to work because it only gets called ones
