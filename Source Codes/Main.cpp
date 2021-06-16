@@ -143,7 +143,7 @@ void* GetTransform(void* Player_move_c)
 */
 
 bool get_isMine(void *Player){
-  return *(bool *)((uint64_t)Player + 0x2D5); //Yes, "IsMine" is still in Player_move_c it just goes under a different from the other isMines because of the underscore at the beginning (_isMine)
+  return *(bool *)((uint64_t)Player + 0x2D5); //Yes, "IsMine" is still in Player_move_c it just goes under a different name from the other isMines because of the underscore at the beginning (_isMine)
 }
 
 // _isMine$$丅一丗丄世丄丒业七 ^^^
